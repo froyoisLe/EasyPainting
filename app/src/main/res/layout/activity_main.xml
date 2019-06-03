@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <site.isleti.painting.DrawingView
+            android:id="@+id/drawing"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
+            android:layout_weight="1"
+            android:background="#FFFFFFFF"
+            android:layout_width="match_parent" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="15"
+            android:id="@+id/top_bar"
+            android:layout_gravity="top"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <LinearLayout
+                android:layout_weight="12.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageButton
+                        android:id="@+id/warn_white"
+                        android:layout_gravity="center"
+                        android:padding="4dp"
+                        android:visibility="visible"
+                        android:src="@mipmap/tip_off"
+                        android:scaleType="centerCrop"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp" />
+                    <ImageButton
+                        android:id="@+id/warn_black"
+                        android:layout_gravity="center"
+                        android:padding="4dp"
+                        android:visibility="gone"
+                        android:src="@mipmap/tip_on"
+                        android:scaleType="centerCrop"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"  />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/tip"
+                    android:layout_marginLeft="-4dp"
+                    android:layout_weight="13"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/tip_bar"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="47dp">
+                    <TextView
+                        android:id="@+id/tip_text"
+                        android:layout_weight="12"
+                        android:gravity="center"
+                        android:paddingStart="7dp"
+                        android:textSize="16sp"
+                        android:textColor="@color/tip_txt"
+                        android:text="今天我要做什么呢哈哈哈哈哈"
+                        android:maxLines="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                    <ImageButton
+                        android:background="#00000000"
+                        android:id="@+id/refresh"
+                        android:visibility="visible"
+                        android:src="@mipmap/refresh"
+                        android:scaleType="centerCrop"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/done"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="top|right"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="16dp"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/done"
+        android:visibility="visible" />
+    <FrameLayout
+        android:id="@+id/tip_window"
+        android:background="@mipmap/bubble"
+        android:layout_marginTop="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_width="140dp"
+        android:layout_height="55dp">
+        <TextView
+            android:textColor="@color/tip_txt"
+            android:text="单击可收起提示"
+            android:gravity="center"
+            android:paddingTop="14dp"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/show_pattern"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="55dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <include layout="@layout/pick_pattern"></include>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/show_color"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="55dp"
+        android:layout_marginStart="40dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <include layout="@layout/pick_color"></include>
+    </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:background="@mipmap/pen_bg"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <LinearLayout
+                android:background="@color/none"
+                android:layout_marginStart="16dp"
+                android:layout_width="0dp"
+                android:gravity="center"
+               android:layout_marginBottom="8dp"
+                android:layout_weight="4.5"
+                android:layout_height="40dp">
+                <ImageView
+                    android:id="@+id/delete"
+
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/delete"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp" />
+                <ImageView
+                    android:id="@+id/choose_pattern"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/color_bg"
+                    android:src="@drawable/pattern4_circle"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp" />
+                <ImageView
+                    android:id="@+id/choose_color"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
+                    android:background="@mipmap/color_bg"
+                    android:src="@drawable/circle_black"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp" />
+            </LinearLayout>
+
+           <LinearLayout
+               android:background="@color/none"
+               android:gravity="bottom|right"
+               android:layout_width="0dp"
+               android:layout_weight="5.5"
+               android:layout_marginLeft="20dp"
+               android:layout_marginRight="10dp"
+               android:layout_height="60dp">
+
+
+               <FrameLayout
+                   android:layout_weight="1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent">
+                   <ImageView
+                       android:layout_gravity="bottom"
+                       android:id="@+id/pen_inactive"
+                       android:src="@mipmap/pen_inactive"
+                       android:layout_width="match_parent"
+                       android:layout_height="40dp" />
+                   <ImageView
+                       android:id="@+id/pen_active"
+                       android:src="@mipmap/pen"
+                       android:visibility="gone"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent" />
+               </FrameLayout>
+
+               <FrameLayout
+                   android:layout_weight="1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent">
+                   <ImageView
+                       android:layout_gravity="bottom"
+                       android:id="@+id/pencil_inactive"
+                       android:src="@mipmap/pencil_inactive"
+                       android:layout_width="match_parent"
+                       android:layout_height="40dp" />
+                   <ImageView
+                       android:id="@+id/pencil_active"
+                       android:src="@mipmap/pencil"
+                       android:visibility="gone"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent" />
+               </FrameLayout>
+
+               <FrameLayout
+                   android:layout_weight="1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent">
+                   <ImageView
+                       android:layout_gravity="bottom"
+                       android:id="@+id/mark_inactive"
+                       android:visibility="gone"
+                       android:src="@mipmap/mark_inactive"
+                       android:layout_width="match_parent"
+                       android:layout_height="40dp" />
+                   <ImageView
+                       android:id="@+id/mark_active"
+                       android:src="@mipmap/mark"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent" />
+               </FrameLayout>
+
+               <FrameLayout
+                   android:layout_weight="1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent">
+                   <ImageView
+                       android:layout_gravity="bottom"
+                       android:id="@+id/eraser_inactive"
+                       android:src="@mipmap/erase_inactive"
+                       android:layout_width="match_parent"
+                       android:layout_height="40dp" />
+                   <ImageView
+                       android:id="@+id/eraser_active"
+                       android:src="@mipmap/erase"
+                       android:visibility="gone"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent" />
+               </FrameLayout>
+           </LinearLayout>
+
+        </LinearLayout>
+
+</FrameLayout>
+
+
